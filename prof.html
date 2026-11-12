@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Devenir prof, Musily</title>
+  <meta name="description" content="Musily recrute des professeurs de musique à Paris et en proche banlieue, tous instruments.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="entete">
+    <a class="logo" href="index.html" aria-label="Musily, accueil">musily</a>
+    <nav class="menu"><a href="index.html">Retour à l'accueil</a></nav>
+  </header>
+
+  <main class="page-formulaire">
+    <h1>Devenir prof chez Musily</h1>
+    <p class="page-formulaire__intro">Musily recrute des professeurs à Paris et en proche banlieue, tous instruments. Laissez votre profil, on vous contacte dès qu'on a des élèves dans votre secteur.</p>
+
+    <form class="formulaire" data-type="prof" novalidate>
+      <input type="hidden" name="type" value="Candidature prof">
+      <p class="piege" aria-hidden="true"><label>Ne pas remplir <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
+
+      <div class="champ">
+        <label for="p-nom">Prénom et nom</label>
+        <input type="text" id="p-nom" name="nom" autocomplete="name" required>
+      </div>
+
+      <div class="champ">
+        <label for="p-email">E-mail</label>
+        <input type="email" id="p-email" name="email" autocomplete="email" required>
+      </div>
+
+      <div class="champ">
+        <label for="p-tel">Téléphone <span class="facultatif">(facultatif)</span></label>
+        <input type="tel" id="p-tel" name="telephone" autocomplete="tel">
+      </div>
+
+      <div class="champ">
+        <label for="p-cp">Votre code postal</label>
+        <input type="text" id="p-cp" name="code_postal" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" autocomplete="postal-code" required>
+      </div>
+
+      <div class="champ champ--large">
+        <label for="p-instruments">Instrument(s) enseigné(s)</label>
+        <input type="text" id="p-instruments" name="instruments" placeholder="Batterie, piano…" required>
+      </div>
+
+      <div class="champ">
+        <label for="p-situation">Situation</label>
+        <select id="p-situation" name="situation" required>
+          <option value="">Choisir</option>
+          <option>Étudiant</option>
+          <option>Indépendant ou auto-entrepreneur</option>
+          <option>Intermittent du spectacle</option>
+          <option>Salarié</option>
+          <option>Autre</option>
+        </select>
+      </div>
+
+      <div class="champ">
+        <label for="p-trajet">Temps de trajet maximum</label>
+        <select id="p-trajet" name="trajet_max" required>
+          <option value="">Choisir</option>
+          <option>15 minutes</option>
+          <option>30 minutes</option>
+          <option>45 minutes</option>
+          <option>1 heure ou plus</option>
+        </select>
+      </div>
+
+      <div class="champ champ--large">
+        <label for="p-experience">Votre parcours en quelques lignes</label>
+        <textarea id="p-experience" name="experience" rows="4" placeholder="Formation, années de pratique, cours déjà donnés…" required></textarea>
+      </div>
+
+      <label class="choix choix--accord champ--large">
+        <input type="checkbox" name="accord" value="Oui" required>
+        <span>J'accepte que Musily utilise ces informations pour me recontacter au sujet de ma candidature. <a href="confidentialite.html">Politique de confidentialité</a></span>
+      </label>
+
+      <div class="champ--large formulaire__fin">
+        <button class="bouton" type="submit">Envoyer mon profil</button>
+        <p class="formulaire__message" role="status" aria-live="polite"></p>
+      </div>
+    </form>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

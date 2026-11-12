@@ -1,0 +1,443 @@
+/* ==========================================================
+   Musily, feuille de style
+   Couleurs et typos se changent ici, dans :root
+   ========================================================== */
+
+:root {
+  --fond: #ffffff;        /* fond de page */
+  --rose: #fbe9ed;        /* rose pâle, utilisé par touches (bloc tarif) */
+  --prune: #2b1320;       /* texte, bandeau profs */
+  --cerise: #8c1d40;      /* boutons, logo, notes */
+  --laiton: #c8a13a;      /* cymbales */
+  --gris: #6b5a62;        /* texte secondaire */
+  --trait: #e6dde0;       /* bordures fines */
+
+  --titre: "Unbounded", "Arial Black", sans-serif;
+  --texte: "Onest", system-ui, sans-serif;
+
+  --largeur: 60rem;
+  --marge: clamp(1.25rem, 5vw, 3rem);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--fond);
+  color: var(--prune);
+  font-family: var(--texte);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--titre);
+  line-height: 1.15;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 700; }
+h2 { font-size: clamp(1.35rem, 2.8vw, 1.8rem); font-weight: 700; }
+h3 { font-size: 1rem; font-weight: 500; letter-spacing: -0.01em; }
+
+p { margin: 0; }
+a { color: inherit; }
+
+:focus-visible {
+  outline: 3px solid var(--cerise);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------- Bandeau et en-tête ---------- */
+
+.annonce {
+  background: var(--prune);
+  color: #fff;
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 0.55rem var(--marge);
+}
+
+.entete {
+  max-width: var(--largeur);
+  margin: 0 auto;
+  padding: 1.25rem var(--marge);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.logo {
+  font-family: var(--titre);
+  font-weight: 700;
+  font-size: 1.45rem;
+  letter-spacing: -0.04em;
+  text-decoration: none;
+  color: var(--cerise);
+}
+
+.menu { display: flex; align-items: center; gap: 1.5rem; font-size: 0.95rem; }
+.menu a:not(.bouton) { text-decoration: none; }
+.menu a:not(.bouton):hover { text-decoration: underline; text-underline-offset: 4px; }
+
+/* ---------- Boutons ---------- */
+
+.bouton {
+  display: inline-block;
+  background: var(--cerise);
+  color: #fff;
+  font-family: var(--texte);
+  font-weight: 600;
+  font-size: 1.05rem;
+  text-decoration: none;
+  padding: 0.95rem 1.7rem;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.bouton:hover { background: var(--prune); }
+.bouton[disabled] { opacity: 0.6; cursor: wait; }
+.bouton--petit { font-size: 0.95rem; padding: 0.6rem 1.15rem; }
+.bouton--clair { background: #fff; color: var(--prune); }
+.bouton--clair:hover { background: var(--rose); }
+
+/* ---------- Haut de page rose (accueil) ---------- */
+
+.haut { background: var(--rose); }
+
+.accroche {
+  max-width: var(--largeur);
+  margin: 0 auto;
+  padding: clamp(1.5rem, 5vw, 3rem) var(--marge) clamp(2.5rem, 6vw, 4.5rem);
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.accroche__intro { margin-top: 1.25rem; font-size: 1.1rem; max-width: 30rem; }
+.accroche__prix { margin: 1.25rem 0 1.75rem; font-size: 1.15rem; }
+.accroche__prix strong { color: var(--cerise); }
+
+/* ---------- Portée jouable ---------- */
+
+.portee-bloc { width: 100%; max-width: 26rem; justify-self: center; }
+
+.portee {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  /* les 5 lignes de la portée, à 30, 40, 50, 60 et 70 % de la hauteur */
+  background: linear-gradient(var(--prune), var(--prune)) 0 30% / 100% 2px no-repeat,
+              linear-gradient(var(--prune), var(--prune)) 0 40% / 100% 2px no-repeat,
+              linear-gradient(var(--prune), var(--prune)) 0 50% / 100% 2px no-repeat,
+              linear-gradient(var(--prune), var(--prune)) 0 60% / 100% 2px no-repeat,
+              linear-gradient(var(--prune), var(--prune)) 0 70% / 100% 2px no-repeat;
+}
+
+/* petite ligne sous la portée pour le premier do */
+.portee__ligne-sup {
+  position: absolute;
+  left: 2.5%;
+  top: 80%;
+  width: 16%;
+  height: 2px;
+  margin-top: -1px;
+  background: var(--prune);
+}
+
+.note {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: 9%;
+  height: 10%;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--cerise);
+  transform: translate(-50%, -50%) rotate(-18deg);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* zone de toucher plus large que la note */
+.note::after { content: ""; position: absolute; inset: -70% -30%; }
+
+.note.jouee { animation: jouee 0.5s ease-out; }
+
+@keyframes jouee {
+  0%   { background: var(--laiton); transform: translate(-50%, -50%) rotate(-18deg) scale(1.35); }
+  100% { background: var(--cerise); transform: translate(-50%, -50%) rotate(-18deg) scale(1); }
+}
+
+.portee__legende { text-align: center; font-size: 0.85rem; margin-top: 0.25rem; color: var(--gris); }
+
+/* ---------- Blocs de la page d'accueil ---------- */
+
+.bloc {
+  max-width: var(--largeur);
+  margin: 0 auto;
+  padding: clamp(1.75rem, 4vw, 2.75rem) var(--marge);
+}
+
+.bloc > h2 { margin-bottom: 1rem; }
+
+.instruments { max-width: 40rem; color: var(--gris); }
+main > .bloc:first-child { padding-top: clamp(2.5rem, 5vw, 3.5rem); }
+
+/* Étapes */
+
+.etapes {
+  list-style: none;
+  counter-reset: etape;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.etapes li { counter-increment: etape; }
+
+.etapes li::before {
+  content: counter(etape);
+  display: grid;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  margin-bottom: 0.85rem;
+  border-radius: 50%;
+  background: var(--cerise);
+  color: #fff;
+  font-family: var(--titre);
+  font-weight: 700;
+}
+
+.etapes p { margin-top: 0.3rem; color: var(--gris); }
+
+/* Tarif */
+
+.tarif {
+  background: var(--rose);
+  border-radius: 20px;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem 3rem;
+  align-items: center;
+}
+
+.tarif__prix {
+  font-family: var(--titre);
+  font-weight: 700;
+  font-size: clamp(2.6rem, 7vw, 3.75rem);
+  line-height: 1.1;
+  color: var(--cerise);
+  margin: 0.5rem 0;
+}
+
+.tarif__prix small { font-family: var(--texte); font-weight: 500; font-size: 1.1rem; color: var(--prune); }
+
+.tarif__points { list-style: none; margin: 0; padding: 0; }
+
+.tarif__points li { padding: 0.55rem 0 0.55rem 1.6rem; position: relative; }
+
+.tarif__points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1.05rem;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  background: var(--laiton);
+}
+
+/* Questions */
+
+.questions details { border-bottom: 1px solid var(--trait); max-width: 42rem; }
+
+.questions summary {
+  cursor: pointer;
+  font-weight: 600;
+  padding: 1rem 2rem 1rem 0;
+  list-style: none;
+  position: relative;
+}
+
+.questions summary::-webkit-details-marker { display: none; }
+
+.questions summary::after {
+  content: "+";
+  position: absolute;
+  right: 0.25rem;
+  top: 0.8rem;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--cerise);
+}
+
+.questions details[open] summary::after { content: "−"; }
+.questions details p { padding: 0 0 1.1rem; color: var(--gris); }
+
+/* Bandeau profs */
+
+.profs { background: var(--prune); color: #fff; margin-top: clamp(1.5rem, 4vw, 3rem); }
+
+.profs__contenu {
+  max-width: var(--largeur);
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 3rem) var(--marge);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.profs p { margin-top: 0.5rem; opacity: 0.85; }
+.profs :focus-visible { outline-color: var(--laiton); }
+
+/* ---------- Pages formulaire ---------- */
+
+.page-formulaire {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: clamp(1rem, 4vw, 2.5rem) var(--marge) 4rem;
+}
+
+.page-formulaire h1 { font-size: clamp(1.7rem, 4.5vw, 2.4rem); }
+.page-formulaire__intro { margin-top: 0.9rem; color: var(--gris); }
+
+.formulaire {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.15rem 1.25rem;
+}
+
+.champ { min-width: 0; margin: 0; padding: 0; border: 0; }
+.champ--large { grid-column: 1 / -1; }
+
+.champ > label, .champ > legend {
+  display: block;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.4rem;
+  padding: 0;
+}
+
+.facultatif { font-weight: 400; color: var(--gris); }
+
+.formulaire input[type="text"],
+.formulaire input[type="email"],
+.formulaire input[type="tel"],
+.formulaire input[type="number"],
+.formulaire select,
+.formulaire textarea {
+  width: 100%;
+  font: inherit;
+  color: var(--prune);
+  background: #fff;
+  border: 1.5px solid #b9aab0;
+  border-radius: 10px;
+  padding: 0.7rem 0.85rem;
+}
+
+.formulaire input:focus, .formulaire select:focus, .formulaire textarea:focus {
+  outline: 0;
+  border-color: var(--cerise);
+  box-shadow: 0 0 0 3px var(--rose);
+}
+
+.formulaire textarea { resize: vertical; }
+.formulaire ::placeholder { color: #9c8d93; }
+
+.choix {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-right: 1.5rem;
+  cursor: pointer;
+}
+
+.choix input { width: 1.15rem; height: 1.15rem; accent-color: var(--cerise); flex: none; }
+
+.choix--accord { align-items: flex-start; font-size: 0.9rem; color: var(--gris); margin: 0.25rem 0 0; }
+.choix--accord input { margin-top: 0.2rem; }
+
+.piege { position: absolute; left: -9999px; }
+
+/* Grille des disponibilités */
+
+.dispos { border-collapse: collapse; width: 100%; max-width: 26rem; margin-top: 0.25rem; }
+.dispos thead th { font-size: 0.85rem; font-weight: 600; padding: 0 0.25rem 0.4rem; text-align: center; }
+.dispos thead small { display: block; font-weight: 400; color: var(--gris); }
+.dispos tbody th { text-align: left; font-weight: 500; font-size: 0.95rem; padding-right: 0.75rem; }
+.dispos td { text-align: center; padding: 0; border-top: 1px solid var(--trait); }
+.dispos tbody th { border-top: 1px solid var(--trait); }
+.dispos td label { display: block; padding: 0.55rem 0; cursor: pointer; }
+.dispos input { width: 1.3rem; height: 1.3rem; accent-color: var(--cerise); vertical-align: middle; }
+
+.cache { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+
+.champ > legend .facultatif { display: block; font-size: 0.85rem; }
+
+.formulaire__fin { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; }
+.formulaire__message { font-weight: 500; }
+.formulaire__message:empty { display: none; }
+
+.confirmation { grid-column: 1 / -1; background: var(--rose); border-radius: 16px; padding: 1.5rem; }
+.confirmation p { margin-top: 0.5rem; }
+.confirmation a { display: inline-block; margin-top: 1rem; font-weight: 600; }
+
+/* ---------- Pied de page ---------- */
+
+.pied {
+  max-width: var(--largeur);
+  margin: 0 auto;
+  padding: 2rem var(--marge) 2.5rem;
+  font-size: 0.9rem;
+  color: var(--gris);
+}
+
+.pied p { margin-top: 0.35rem; }
+.pied__liens { display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; }
+
+/* ---------- Pages légales ---------- */
+
+.legal { max-width: 44rem; margin: 0 auto; padding: 2rem var(--marge) 4rem; }
+.legal h1 { font-size: clamp(1.7rem, 4.5vw, 2.4rem); margin-bottom: 1.5rem; }
+.legal h2 { font-size: 1.15rem; font-weight: 500; margin: 2rem 0 0.6rem; }
+.legal p, .legal ul { margin: 0 0 0.8rem; }
+.legal ul { padding-left: 1.2rem; }
+.legal .a-completer { background: #fff3b0; padding: 0 0.25em; }
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 760px) {
+  .menu a:not(.bouton) { display: none; }
+  .entete .menu a:only-child { display: inline; }
+
+  .accroche { grid-template-columns: 1fr; }
+
+  .etapes { grid-template-columns: 1fr; gap: 1.5rem; }
+  .tarif { grid-template-columns: 1fr; }
+  .formulaire { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .note.jouee { animation: none; }
+  .bouton { transition: none; }
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demander un cours, Musily</title>
+  <meta name="description" content="Demandez un cours de musique à domicile à Paris. Gratuit et sans engagement.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="entete">
+    <a class="logo" href="index.html" aria-label="Musily, accueil">musily</a>
+    <nav class="menu"><a href="index.html">Retour à l'accueil</a></nav>
+  </header>
+
+  <main class="page-formulaire">
+    <h1>Demander un cours</h1>
+    <p class="page-formulaire__intro">On vous écrit dès qu'un professeur est disponible près de chez vous. Gratuit et sans engagement.</p>
+
+    <form class="formulaire" data-type="eleve" novalidate>
+      <input type="hidden" name="type" value="Demande élève">
+      <p class="piege" aria-hidden="true"><label>Ne pas remplir <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
+
+      <fieldset class="champ champ--large">
+        <legend>Le cours est pour</legend>
+        <label class="choix"><input type="radio" name="pour_qui" value="Mon enfant" required> Mon enfant</label>
+        <label class="choix"><input type="radio" name="pour_qui" value="Moi"> Moi</label>
+      </fieldset>
+
+      <div class="champ">
+        <label for="e-instrument">Instrument</label>
+        <select id="e-instrument" name="instrument" required data-autre="e-autre">
+          <option value="">Choisir</option>
+          <option>Guitare</option>
+          <option>Piano</option>
+          <option>Batterie</option>
+          <option>Basse</option>
+          <option>Violon</option>
+          <option>Violoncelle</option>
+          <option>Flûte</option>
+          <option>Clarinette</option>
+          <option>Saxophone</option>
+          <option>Trompette</option>
+          <option>Trombone</option>
+          <option value="Autre">Autre instrument</option>
+        </select>
+      </div>
+
+      <div class="champ" id="e-autre" hidden>
+        <label for="e-autre-champ">Quel instrument ?</label>
+        <input type="text" id="e-autre-champ" name="instrument_autre">
+      </div>
+
+      <div class="champ">
+        <label for="e-niveau" data-enfant="Son niveau" data-moi="Votre niveau">Niveau</label>
+        <select id="e-niveau" name="niveau" required>
+          <option value="">Choisir</option>
+          <option>Débutant</option>
+          <option>Quelques bases</option>
+          <option>Intermédiaire</option>
+          <option>Avancé</option>
+        </select>
+      </div>
+
+      <div class="champ">
+        <label for="e-age" data-enfant="Âge de votre enfant" data-moi="Votre âge">Âge de l'élève</label>
+        <input type="number" id="e-age" name="age_eleve" min="3" max="99" inputmode="numeric" required>
+      </div>
+
+      <div class="champ">
+        <label for="e-materiel">Un instrument à la maison ?</label>
+        <select id="e-materiel" name="instrument_a_domicile" required>
+          <option value="">Choisir</option>
+          <option>Oui</option>
+          <option>Pas encore</option>
+        </select>
+      </div>
+
+      <div class="champ">
+        <label for="e-cp">Code postal</label>
+        <input type="text" id="e-cp" name="code_postal" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" autocomplete="postal-code" required>
+      </div>
+
+      <fieldset class="champ champ--large">
+        <legend><span data-enfant="Quand votre enfant est-il disponible ?" data-moi="Quand êtes-vous disponible ?">Disponibilités</span> <span class="facultatif">Cochez tous les créneaux possibles</span></legend>
+        <div class="js-dispos"></div>
+        <input type="hidden" name="disponibilites">
+      </fieldset>
+
+      <div class="champ">
+        <label for="e-nom">Votre prénom</label>
+        <input type="text" id="e-nom" name="prenom" autocomplete="given-name" required>
+      </div>
+
+      <div class="champ">
+        <label for="e-email">Votre e-mail</label>
+        <input type="email" id="e-email" name="email" autocomplete="email" required>
+      </div>
+
+      <div class="champ champ--large">
+        <label for="e-tel">Votre téléphone <span class="facultatif">(facultatif)</span></label>
+        <input type="tel" id="e-tel" name="telephone" autocomplete="tel">
+      </div>
+
+      <label class="choix choix--accord champ--large">
+        <input type="checkbox" name="accord" value="Oui" required>
+        <span>J'accepte que Musily utilise ces informations pour me recontacter au sujet de ma demande. <a href="confidentialite.html">Politique de confidentialité</a></span>
+      </label>
+
+      <div class="champ--large formulaire__fin">
+        <button class="bouton" type="submit">Envoyer ma demande</button>
+        <p class="formulaire__message" role="status" aria-live="polite"></p>
+      </div>
+    </form>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

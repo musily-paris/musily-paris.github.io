@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Musily, cours de musique à domicile à Paris</title>
+  <meta name="description" content="Un professeur de musique vient chez vous, à Paris et en proche banlieue. Guitare, piano, batterie, violon et plus. 25 € l'heure après crédit d'impôt.">
+  <meta property="og:title" content="Musily, cours de musique à domicile à Paris">
+  <meta property="og:description" content="Un professeur de musique vient chez vous. 25 € l'heure après crédit d'impôt.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <p class="annonce">Ouverture prochaine à Paris et en proche banlieue. Les inscriptions sont ouvertes.</p>
+
+  <div class="haut">
+    <header class="entete">
+      <a class="logo" href="index.html" aria-label="Musily, accueil">musily</a>
+      <nav class="menu" aria-label="Navigation principale">
+        <a href="prof.html">Devenir prof</a>
+        <a class="bouton bouton--petit" href="demande.html">Demander un cours</a>
+      </nav>
+    </header>
+
+    <!-- ACCROCHE -->
+    <section class="accroche">
+      <div class="accroche__texte">
+        <h1>Un prof de musique à la maison, à Paris.</h1>
+        <p class="accroche__intro">Musily vous trouve un professeur près de chez vous, qui vient donner le cours à domicile au créneau qui vous arrange. Pour les enfants comme pour les adultes, du tout premier cours au niveau avancé.</p>
+        <p class="accroche__prix"><strong><span class="js-prix">25</span> € l'heure</strong> après crédit d'impôt</p>
+        <a class="bouton" href="demande.html">Demander un cours</a>
+      </div>
+
+      <div class="portee-bloc">
+        <div class="portee" role="group" aria-label="Portée jouable : huit notes, de do à do">
+          <span class="portee__ligne-sup" aria-hidden="true"></span>
+          <button type="button" class="note" data-note="do"  style="--x:6%;  --y:80%" aria-label="Do"></button>
+          <button type="button" class="note" data-note="re"  style="--x:18%; --y:75%" aria-label="Ré"></button>
+          <button type="button" class="note" data-note="mi"  style="--x:30%; --y:70%" aria-label="Mi"></button>
+          <button type="button" class="note" data-note="fa"  style="--x:42%; --y:65%" aria-label="Fa"></button>
+          <button type="button" class="note" data-note="sol" style="--x:54%; --y:60%" aria-label="Sol"></button>
+          <button type="button" class="note" data-note="la"  style="--x:66%; --y:55%" aria-label="La"></button>
+          <button type="button" class="note" data-note="si"  style="--x:78%; --y:50%" aria-label="Si"></button>
+          <button type="button" class="note" data-note="do2" style="--x:90%; --y:45%" aria-label="Do aigu"></button>
+        </div>
+        <p class="portee__legende">Touchez les notes pour les entendre.</p>
+      </div>
+    </section>
+  </div>
+
+  <main>
+
+    <!-- INSTRUMENTS -->
+    <section class="bloc" aria-labelledby="titre-instruments">
+      <h2 id="titre-instruments">Tous les instruments</h2>
+      <p class="instruments">Guitare, piano, batterie, basse, violon, violoncelle, flûte, clarinette, saxophone, trompette, trombone. Vous pensez à un autre instrument ? Indiquez-le dans votre demande, on cherchera un professeur.</p>
+    </section>
+
+    <!-- FONCTIONNEMENT -->
+    <section class="bloc" id="fonctionnement" aria-labelledby="titre-etapes">
+      <h2 id="titre-etapes">Comment ça marche</h2>
+      <ol class="etapes">
+        <li>
+          <h3>Vous faites votre demande</h3>
+          <p>Instrument, niveau, quartier, disponibilités. Ça prend deux minutes et ça ne vous engage à rien.</p>
+        </li>
+        <li>
+          <h3>On vous propose un prof</h3>
+          <p>Un professeur qui enseigne votre instrument, proche de chez vous et disponible à vos horaires.</p>
+        </li>
+        <li>
+          <h3>Le cours a lieu chez vous</h3>
+          <p>Le professeur se déplace. Vous avancez à votre rythme et vous arrêtez quand vous voulez.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- TARIF -->
+    <section class="bloc" id="tarif" aria-labelledby="titre-tarif">
+      <div class="tarif">
+        <div>
+          <h2 id="titre-tarif">Un seul tarif</h2>
+          <p class="tarif__prix"><span class="js-prix">25</span> € <small>l'heure</small></p>
+          <p><span class="js-prix-plein">50</span> € le cours, moins 50 % de crédit d'impôt.</p>
+        </div>
+        <ul class="tarif__points">
+          <li>Le même prix pour tous les instruments</li>
+          <li>Pas de frais d'inscription</li>
+          <li>Pas d'engagement de durée</li>
+          <li>Avance immédiate : vous payez directement <span class="js-prix">25</span> €, sans attendre de remboursement</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- QUESTIONS -->
+    <section class="bloc questions" aria-labelledby="titre-questions">
+      <h2 id="titre-questions">Questions fréquentes</h2>
+
+      <details>
+        <summary>Quand les cours commencent-ils ?</summary>
+        <p>Musily ouvre secteur par secteur. Dès qu'un professeur est disponible près de chez vous, on vous écrit pour organiser le premier cours. La demande est gratuite et ne vous engage à rien.</p>
+      </details>
+
+      <details>
+        <summary>Comment fonctionne le crédit d'impôt ?</summary>
+        <p>Les cours donnés à votre domicile ouvrent droit à un crédit d'impôt de 50 %, que vous soyez imposable ou non. Un cours facturé <span class="js-prix-plein">50</span> € vous revient donc à <span class="js-prix">25</span> €. Avec l'avance immédiate, le crédit d'impôt est déduit tout de suite : vous ne payez que les <span class="js-prix">25</span> €, sans attendre votre déclaration de revenus.</p>
+      </details>
+
+      <details>
+        <summary>On n'a pas encore d'instrument à la maison</summary>
+        <p>Ce n'est pas un problème pour faire une demande. Indiquez-le dans le formulaire : le professeur pourra vous conseiller sur l'achat ou la location.</p>
+      </details>
+
+      <details>
+        <summary>Dans quels secteurs intervenez-vous ?</summary>
+        <p>Paris et la proche banlieue.</p>
+      </details>
+    </section>
+
+    <!-- PROFS -->
+    <section class="profs" aria-labelledby="titre-profs">
+      <div class="profs__contenu">
+        <div>
+          <h2 id="titre-profs">Vous êtes prof de musique ?</h2>
+          <p>Musily cherche des professeurs à Paris et en proche banlieue, tous instruments. On vous trouve des élèves près de chez vous, vous donnez les cours.</p>
+        </div>
+        <a class="bouton bouton--clair" href="prof.html">Proposer mon profil</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="pied">
+    <p class="logo">musily</p>
+    <p><a href="mailto:musily.contact@gmail.com" class="js-email">musily.contact@gmail.com</a></p>
+    <p class="pied__liens"><a href="mentions-legales.html">Mentions légales</a> <a href="confidentialite.html">Politique de confidentialité</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
