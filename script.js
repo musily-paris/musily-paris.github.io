@@ -41,22 +41,34 @@ const FREQUENCES = {
 
 let audio = null;
 
+function lancerSon(frequence) {
+  const t = audio.currentTime;
+  const osc = audio.createOscillator();
+  const gain = audio.createGain();
+  osc.type = "triangle";
+  osc.frequency.value = frequence;
+  gain.gain.setValueAtTime(0.0001, t);
+  gain.gain.exponentialRampToValueAtTime(0.5, t + 0.01);
+  gain.gain.exponentialRampToValueAtTime(0.001, t + 0.9);
+  osc.connect(gain).connect(audio.destination);
+  osc.start(t);
+  osc.stop(t + 0.9);
+}
+
 function jouerNote(bouton) {
   const Contexte = window.AudioContext || window.webkitAudioContext;
   if (Contexte) {
     if (!audio) audio = new Contexte();
-    if (audio.state === "suspended") audio.resume();
-    const t = audio.currentTime;
-    const osc = audio.createOscillator();
-    const gain = audio.createGain();
-    osc.type = "triangle";
-    osc.frequency.value = FREQUENCES[bouton.dataset.note];
-    gain.gain.setValueAtTime(0.0001, t);
-    gain.gain.exponentialRampToValueAtTime(0.5, t + 0.01);
-    gain.gain.exponentialRampToValueAtTime(0.001, t + 0.9);
-    osc.connect(gain).connect(audio.destination);
-    osc.start(t);
-    osc.stop(t + 0.9);
+    // sur iPhone, sort le son du canal "sonnerie" pour ignorer le mode silencieux
+    if (navigator.audioSession) {
+      try { navigator.audioSession.type = "playback"; } catch (e) {}
+    }
+    const frequence = FREQUENCES[bouton.dataset.note];
+    if (audio.state === "running") {
+      lancerSon(frequence);
+    } else {
+      audio.resume().then(() => lancerSon(frequence)).catch(() => {});
+    }
   }
   bouton.classList.remove("jouee");
   void bouton.offsetWidth; // relance l'animation
