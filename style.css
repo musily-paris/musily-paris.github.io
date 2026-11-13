@@ -79,7 +79,16 @@ a { color: inherit; }
   font-size: 1.45rem;
   letter-spacing: -0.04em;
   text-decoration: none;
-  color: var(--cerise);
+  color: var(--prune);;
+}
+
+.logo__note {
+  display: inline-block;
+  height: 0.78em;
+  width: 0.5em;
+  margin: 0 0.03em 0 0.01em;
+  overflow: visible;
+  fill: var(--cerise);
 }
 
 .menu { display: flex; align-items: center; gap: 1.5rem; font-size: 0.95rem; }

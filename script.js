@@ -23,6 +23,15 @@ document.querySelectorAll(".js-email").forEach((el) => {
   el.href = "mailto:" + CONFIG.email;
 });
 
+/* ---------- Logo : la note à la place du "l" ---------- */
+
+document.querySelectorAll(".logo").forEach((el) => {
+  el.setAttribute("aria-label", "Musily");
+  el.innerHTML = 'musi<svg class="logo__note" aria-hidden="true" viewBox="0 0 50 78">' +
+    '<rect x="35" y="0" width="14" height="62"></rect>' +
+    '<ellipse cx="25" cy="61" rx="25" ry="16" transform="rotate(-20 25 61)"></ellipse></svg>y';
+});
+
 /* ---------- Portée jouable (page d'accueil) ---------- */
 
 const FREQUENCES = {
